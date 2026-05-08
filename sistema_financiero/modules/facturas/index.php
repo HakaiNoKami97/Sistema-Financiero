@@ -251,28 +251,51 @@ foreach ($_SESSION['carrito'] as $i => $item) {
         </select>
     </div>
 
-    <!-- 🔸 CHECKBOX AL LADO -->
-    <div class="col-md-4">
-        <div class="form-check mt-2">
-            <input class="form-check-input" type="checkbox" name="usar_puntos" id="usar_puntos">
-            <label class="form-check-label" for="usar_puntos">
-                Usar todos los puntos
-            </label>
-        </div>
+<!-- 🔥 MOSTRAR PUNTOS -->
+<div id="puntosCliente" class="alert alert-info mt-3" style="display:none;"></div>
+
+<!-- MÉTODO DE PAGO + PUNTOS -->
+<div class="d-flex align-items-center gap-4 flex-wrap mt-3">
+
+    <!-- EFECTIVO -->
+    <div class="form-check">
+        <input class="form-check-input" type="radio" 
+               name="metodo_pago" value="efectivo" id="efectivo">
+
+        <label class="form-check-label" for="efectivo">
+            Efectivo
+        </label>
+    </div>
+
+    <!-- ELECTRÓNICO -->
+    <div class="form-check">
+        <input class="form-check-input" type="radio" 
+               name="metodo_pago" value="electronico" id="electronico">
+
+        <label class="form-check-label" for="electronico">
+            Electrónico
+        </label>
+    </div>
+
+    <!-- USAR PUNTOS -->
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" 
+               name="usar_puntos" id="usar_puntos">
+
+        <label class="form-check-label" for="usar_puntos">
+            Usar todos los puntos
+        </label>
     </div>
 
 </div>
 
-<!-- 🔥 MOSTRAR PUNTOS -->
-<div id="puntosCliente" class="alert alert-info mt-3" style="display:none;"></div>
-<br>
-
-<input type="radio" name="metodo_pago" value="efectivo"> Efectivo
-<input type="radio" name="metodo_pago" value="electronico" id="electronico"> Electrónico
-
-<div id="bancoContainer" style="display:none;" class="mt-2">
+<!-- SELECT BANCOS -->
+<div id="bancoContainer" style="display:none;" class="mt-3">
     <select name="banco" id="banco" class="form-select">
-        <option value="" disabled selected hidden>Seleccione banco</option>
+        <option value="" disabled selected hidden>
+            Seleccione banco
+        </option>
+
         <option>Bancamía</option>
         <option>Banco Agrario de Colombia</option>
         <option>Banco AV Villas</option>
@@ -298,9 +321,11 @@ foreach ($_SESSION['carrito'] as $i => $item) {
 
 <br>
 
-<button name="facturar" id="btnFinalizar" class="btn btn-success" disabled>
-Finalizar
-</button>
+<div class="mt-4">
+    <button name="facturar" id="btnFinalizar" class="btn btn-success px-4" disabled>
+        Finalizar
+    </button>
+</div>
 
 </form>
 </div>
